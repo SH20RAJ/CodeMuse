@@ -1,16 +1,39 @@
 <?php
 if(isset($_GET['p'])){
-  echo $_GET['p'];
+  die();
 }
-$url = "https://www.sitepoint.com/blog/";
+function replaceAllLinks($html) {
+    $dom = new DOMDocument();
+    libxml_use_internal_errors(true); // Disable error reporting
+    $dom->loadHTML($html);
+    libxml_clear_errors(); // Clear any existing errors
 
-$content = file_get_contents($url);
+    $xpath = new DOMXPath($dom);
+    $nodes = $xpath->query("//*[@id='main-content']//a");
 
-if ($content === false) {
-    // Error handling if the content retrieval fails
-    echo "Failed to retrieve the content.";
+    foreach ($nodes as $node) {
+        $href = $node->getAttribute('href');
+        $modifiedUrl =  ltrim($href, '/');
+        $node->setAttribute('href', $modifiedUrl);
+    }
+
+    $modifiedHtml = $dom->saveHTML();
+    return $modifiedHtml;
+}
+
+$url = 'https://www.sitepoint.com/blog/';
+
+// Fetch HTML content from the URL
+$html = file_get_contents($url);
+
+// Check if HTML content is successfully fetched
+if ($html !== false) {
+    // Apply replacements
+    $modifiedHtml = replaceAllLinks($html);
+    
+    // Output the modified HTML
+    echo $modifiedHtml;
 } else {
-    // Display the retrieved content
-    echo $content;
+    // Error handling if fetching HTML content fails
+    echo "Failed to fetch HTML content from the URL.";
 }
-?>
