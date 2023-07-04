@@ -35,7 +35,7 @@ function replaceLinksInAside($html) {
 
     foreach ($nodes as $node) {
         $href = $node->getAttribute('href');
-        $modifiedUrl = '../sp/' . ltrim($href, '/');
+        $modifiedUrl = '../../sp/' . ltrim($href, '/');
         $node->setAttribute('href', $modifiedUrl);
     }
 
