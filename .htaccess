@@ -1,4 +1,4 @@
 RewriteEngine On
 
-RewriteRule sp sp.php
+#RewriteRule sp sp.php
 RewriteRule sp/(.*)$ sp.php?p=$1
