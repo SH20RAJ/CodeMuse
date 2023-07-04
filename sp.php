@@ -1,4 +1,10 @@
 <?php
+$url = 'https://www.sitepoint.com/blog/';
+
+if(isset($_GET['p'])){
+  $url = 'https://www.sitepoint.com/'.$_GET['p'];
+  //die();
+}
 
 function replaceAllLinks($html) {
     $dom = new DOMDocument();
@@ -19,11 +25,7 @@ function replaceAllLinks($html) {
     return $modifiedHtml;
 }
 
-$url = 'https://www.sitepoint.com/blog/';
-if(isset($_GET['p'])){
-  echo $url = 'https://www.sitepoint.com/'.$_GET['p'];
-  die();
-}
+
 // Fetch HTML content from the URL
 $html = file_get_contents($url);
 
