@@ -21,8 +21,8 @@ function replaceAllLinks($html) {
 
 $url = 'https://www.sitepoint.com/blog/';
 if(isset($_GET['p'])){
-  $url = 'https://www.sitepoint.com/'.$_GET['p'];
-
+  echo $url = 'https://www.sitepoint.com/'.$_GET['p'];
+  die();
 }
 // Fetch HTML content from the URL
 $html = file_get_contents($url);
