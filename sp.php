@@ -50,7 +50,11 @@ $html = file_get_contents($url);
 // Check if HTML content is successfully fetched
 if ($html !== false) {
     // Apply replacements
-    $modifiedHtml = replaceLinksInAside(replaceAllLinks($html));
+    $modifiedHtml = replaceAllLinks($html);
+  
+if(isset($_GET['p'])){
+    $modifiedHtml = replaceLinksInAside(replaceAllLinks($html))
+}
     
     // Output the modified HTML
     echo $modifiedHtml;
