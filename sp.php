@@ -1,8 +1,5 @@
 <?php
-if(isset($_GET['p'])){
-  echo $_GET['p'];
-  die();
-}
+
 function replaceAllLinks($html) {
     $dom = new DOMDocument();
     libxml_use_internal_errors(true); // Disable error reporting
@@ -23,7 +20,10 @@ function replaceAllLinks($html) {
 }
 
 $url = 'https://www.sitepoint.com/blog/';
+if(isset($_GET['p'])){
+  $url = 'https://www.sitepoint.com/'.$_GET['p'];
 
+}
 // Fetch HTML content from the URL
 $html = file_get_contents($url);
 
