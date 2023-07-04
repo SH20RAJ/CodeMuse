@@ -1,6 +1,7 @@
 <?php
 if(isset($_GET['p'])){
   echo $_GET['p'];
+  die();
 }
 function replaceAllLinks($html) {
     $dom = new DOMDocument();
