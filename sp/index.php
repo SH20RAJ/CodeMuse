@@ -1,5 +1,8 @@
 <?php
-$url = "https://dev.to/sh20raj/webscrapperjs-get-contenthtml-of-any-website-without-being-blocked-by-cors-even-using-javascript-by-whollyapi-42l7";
+if(isset($_GET['p'])){
+  echo $_GET['p'];
+}
+$url = "https://www.sitepoint.com/blog/";
 
 $content = file_get_contents($url);
 

@@ -1,0 +1,3 @@
+RewriteEngine On
+
+RewriteRule sp/(.*)$ sp/?p=$1

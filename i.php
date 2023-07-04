@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Image Uploader</title>
-</head>
+</head> 
 <body>
     <form action="" method="post" enctype="multipart/form-data">
         <input type="file" name="images[]" multiple>
