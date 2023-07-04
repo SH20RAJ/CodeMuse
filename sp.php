@@ -53,7 +53,7 @@ if ($html !== false) {
     $modifiedHtml = replaceAllLinks($html);
   
 if(isset($_GET['p'])){
-    $modifiedHtml = replaceLinksInAside(replaceAllLinks($html))
+    $modifiedHtml = replaceLinksInAside(replaceAllLinks($html));
 }
     
     // Output the modified HTML
